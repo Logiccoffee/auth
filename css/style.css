@@ -1,0 +1,227 @@
+/* Reset Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Signika', sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Container */
+  .form-container {
+    position: relative; /* Tambahkan relative agar cancel-btn dapat diposisikan */
+    background: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0 0.2rem rgba(201, 153, 76, 0.25);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Header */
+  .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .brand .logo-img {
+    margin-bottom: 1rem; /* Increased margin to space it out better */
+    height: 80px; /* Adjusted height for a slightly larger logo */
+  }
+  
+  
+  .brand .text-center {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #c9994c;
+  }
+  
+  .login-title {
+    font-size: 1.8rem;
+    color: #c9994c;
+    margin-bottom: 1rem;
+  }
+  
+  .welcome-text {
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  /* Input Groups */
+  .input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .input-group input:focus {
+    border-color: #c9994c;
+    box-shadow: 0 0 0 0.2rem rgba(201, 153, 76, 0.25);
+  }
+  
+  .input-group label {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+    color: #888;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  
+  .input-group input:focus + label,
+  .input-group input:not(:placeholder-shown) + label {
+    top: -0.75rem;
+    font-size: 0.8rem;
+    color: #c9994c;
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    background-color: #c9994c;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .submit-btn:hover {
+    background-color: #b28942;
+  }
+  
+  /* Cancel Button */
+  .cancel-btn-container {
+    position: absolute; /* Membuat tombol cancel berada di atas formulir */
+    top: 1rem; /* Jarak dari atas */
+    right: 1rem; /* Jarak dari kanan */
+  }
+  
+  .cancel-btn {
+    color: #c9994c;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .cancel-btn:hover {
+    color:  #b28942;
+  }
+  
+  /* Register Link */
+  .register-text {
+    color: #666;
+  }
+  
+  .register-link {
+    color: #c9994c;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .register-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* css regis */
+  /* body { */
+      /* font-family: 'Signika', sans-serif; */
+      /* background: #84b8c6; */
+      /* display: flex; */
+      /* justify-content: center; */
+      /* align-items: center; */
+      /* height: 100vh; */
+      /* color: #033043; */
+      /* margin: 0; */
+      /* padding: 20px; */
+  /* } */
+  
+  .form-container1 {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow:  0 0 0 0.2rem rgba(201, 153, 76, 0.25);
+      width: 500px; /* Keeping the width consistent */
+      margin: 20px;
+      position: relative;
+      display: flex;
+      flex-direction: column; /* Flexbox layout */
+  }
+  
+  h2 {
+      text-align: center;
+      margin-top: 0px;
+      margin-bottom: 10px;
+      color: #84b8c6;
+  }
+  
+  .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+  }
+  
+  
+  .brand .text-center {
+      color: #c9994c;
+      font-weight: 600;
+      font-size: 1.8rem;
+      line-height: 50px;
+      font-family: 'Signika', sans-serif;
+  }
+  
+  .login-title {
+      font-family: 'Signika', sans-serif;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+  }
+  
+  .welcome-text {
+      margin-bottom: 20px;
+      font-weight: normal;
+  }
+  
+  .input-group-sejajar {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+  }
+  
+  .input-group {
+      position: relative;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 600px) {
+      .input-group {
+          flex-direction: column; /* Stack elements vertically */
+      }
+      .input-group-sejajar {
+          flex-direction: column; /* Stack elements vertically */
+      }
+  }
+  
