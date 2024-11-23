@@ -4,12 +4,14 @@ import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js"
 import { redirect } from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 
 // Validasi login berdasarkan cookie
+// Validasi login berdasarkan cookie
 if (getCookie("login") === "") {
-    redirect("/"); // Redirect ke login jika belum login
+    // Tetap di halaman login
+    setInner("content", "Silakan login untuk melanjutkan."); // Menampilkan pesan untuk login
+} else {
+    // Ambil data user
+    getJSON("https://asia-southeast2-awangga.cloudfunctions.net/logiccoffee/data/user", "login", getCookie("login"), validateRole);
 }
-
-// Ambil data user
-getJSON("https://api.do.my.id/data/user", "login", getCookie("login"), validateRole);
 
 function validateRole(result) {
     if (result.status === 404) {
