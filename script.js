@@ -23,7 +23,7 @@ function validateRole(result) {
         const allowedRolesForHome = ["user", "dosen"];
 
         if (allowedRolesForHome.includes(userRole)) {
-            redirect("/home"); // Arahkan user atau dosen ke halaman home
+            redirect("/menu"); // Arahkan user atau dosen ke halaman home
         } else if (userRole === "admin") {
             redirect("/admin/dashboard"); // Arahkan admin ke dashboard admin
         } else if (userRole === "cashier") {
