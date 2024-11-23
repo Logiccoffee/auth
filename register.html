@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/img/logo logic.png" type="image/png">
+    <link rel="shortcut icon" href="img/logo logic.png" type="image/x-icon">
     <title>Register | Logic Coffee</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Google fonts signika -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,144 +26,42 @@
             </div>
             <h2 class="text-center login-title">Daftar</h2>
 
-            <!-- Welcome message -->
-            <p class="welcome-text">Buat akun baru Anda!</p>
-
-            <!-- First Name and Last Name (Sejajar) -->
-            <div class="input-group-sejajar">
+            <p class="welcome-text">Buat akun barumu!</p>
+            
                 <div class="input-group">
-                    <input type="text" id="register-firstname" required>
-                    <label for="register-firstname">Nama Depan</label>
+                    <input type="text" id="register-name" required>
+                    <label for="register-name">Nama</label>
                 </div>
-                <div class="input-group">
-                    <input type="text" id="register-lastname" required>
-                    <label for="register-lastname">Nama Belakang</label>
-                </div>
-            </div>
 
-            <!-- No Telp and Email (Sejajar) -->
-            <div class="input-group-sejajar">
                 <div class="input-group">
                     <input type="tel" id="register-phone" required>
-                    <label for="register-phone">No Telp</label>
+                    <label for="register-phone">Nomor Hp</label>
                 </div>
-                <div class="input-group">
-                    <input type="email" id="register-email" required>
-                    <label for="register-email">Email</label>
-                </div>
-            </div>
+                
 
-            <!-- Alamat -->
             <div class="input-group">
-                <input type="text" id="register-address" required>
-                <label for="register-address">Alamat</label>
+                <input type="email" id="register-email" required>
+                <label for="login-email" style="font-size: 16px;">Email</label>
             </div>
 
-            <!-- Password and Confirm Password (Sejajar) with show/hide functionality -->
-            <div class="input-group-sejajar">
-                <div class="input-group">
-                    <input type="password" id="register-password" required>
-                    <label for="register-password">Password</label>
-                    <span class="toggle-password" onclick="togglePasswordVisibility('register-password')">
-                        <i class="fa-solid fa-eye" id="eye-register-password"></i>
-                    </span>
-                </div>
-                <div class="input-group">
-                    <input type="password" id="register-confirm-password" required>
-                    <label for="register-confirm-password">Konfirmasi Password</label>
-                    <span class="toggle-password" onclick="togglePasswordVisibility('register-confirm-password')">
-                        <i class="fa-solid fa-eye" id="eye-register-confirm-password"></i>
-                    </span>
-                </div>
+            <div class="input-group">
+                <input type="password" id="register-password" required>
+                <label for="register-password" style="font-size: 16px;">Password</label>
             </div>
 
-            <!-- Submit Button -->
             <button type="submit" class="submit-btn">Daftar</button>
 
-            <!-- Cancel Button -->
             <div class="cancel-btn-container">
                 <a href="../index.html" class="cancel-btn">
                     <i class="fa-solid fa-circle-xmark"></i>
                 </a> <!-- Circle X Mark Icon -->
             </div>
 
-            <!-- Login Link -->
+            <!-- register Link -->
             <div class="text-center mt-3">
                 <p class="register-text">Sudah punya akun? <a href="login.html" class="register-link">Masuk sekarang</a></p>
             </div>
         </form>
     </div>
-
-    <script>
-        // Fungsi untuk menampilkan/menyembunyikan password
-        function togglePasswordVisibility(fieldId) {
-            const passwordField = document.getElementById(fieldId);
-            const eyeIcon = document.getElementById('eye-' + fieldId);
-
-            if (passwordField.type === 'password') {
-                passwordField.type = 'text';
-                eyeIcon.classList.remove('fa-eye');
-                eyeIcon.classList.add('fa-eye-slash');
-            } else {
-                passwordField.type = 'password';
-                eyeIcon.classList.remove('fa-eye-slash');
-                eyeIcon.classList.add('fa-eye');   
-
-            }
-        }
-
-        // Fungsi   validasi password
-        function validatePassword() {
-            const password = document.getElementById('register-password').value;
-            const confirmPassword = document.getElementById('register-confirm-password').value;   
-
-
-            if (password !== confirmPassword)   
- {
-                alert("Password dan Konfirmasi Password tidak cocok!");
-                return false;
-            }
-            return true;
-        }
-
-        // Event listener untuk mencegah penempelan (paste) pada input password
-        document.getElementById('register-password').addEventListener('paste', function(e) {
-            e.preventDefault();
-            alert("Penempelan password tidak diizinkan.");
-        });
-        document.getElementById('register-confirm-password').addEventListener('paste', function(e) {
-            e.preventDefault();
-            alert("Penempelan password tidak diizinkan.");
-        });
-    </script>
-
-    
-
-    <style>
-        /* Styling for the input group in horizontal (sejajar) */
-        .input-group-sejajar {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        /* Positioning for the eye icon */
-        .toggle-password {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-
-        .input-group {
-            position: relative;
-            width: 100%;
-        }
-
-        .input-group input {
-            width: 100%;
-        }
-    </style>
 </body>
 </html>
