@@ -205,22 +205,23 @@ input:valid + label {
 }
 
 .whatsauth-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #4caf50;
   padding: 10px 20px;
+  border-radius: 5px;
   font-size: 16px;
   font-family: 'Signika', sans-serif;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  color: #000;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
 }
 
 .whatsauth-btn:hover {
-  background-color: #eee;
-  border-color: #888;
-  color: #333;
+  background-color: #388e3c;
 }
+
 
 /* Responsiveness */
 
