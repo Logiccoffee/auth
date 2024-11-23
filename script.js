@@ -16,7 +16,7 @@ if (getCookie("login") === "") {
 function validateRole(result) {
     if (result.status === 404) {
         setInner("content", "Silahkan lakukan pendaftaran terlebih dahulu " + result.data.name);
-        redirect("/signup");
+        redirect("/register");
     } else {
         // Cek role untuk mengarahkan halaman
         const userRole = result.data.role;
