@@ -9,7 +9,7 @@ if (getCookie("login") === "") {
 }
 
 // Ambil data pengguna menggunakan API
-getJSON("https://api.do.my.id/data/user", "login", getCookie("login"), responseFunction);
+getJSON("https://asia-southeast2-awangga.cloudfunctions.net/logiccoffee/data/user", "login", getCookie("login"), responseFunction);
 
 function responseFunction(result) {
     if (result.status === 404) {
