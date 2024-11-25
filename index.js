@@ -9,13 +9,13 @@ if (getCookie("login") === "") {
 }
 
 // Ambil data pengguna menggunakan API
-getJSON("https://asia-southeast2-awangga.cloudfunctions.net/logiccoffee/data/user", "login", getCookie("login"), responseFunction);
+getJSON("https://api.do.my.id/data/user", "login", getCookie("login"), responseFunction);
 
 function responseFunction(result) {
     if (result.status === 404) {
         // Jika pengguna tidak ditemukan, arahkan ke halaman pendaftaran
         setInner("content", "Silahkan lakukan pendaftaran terlebih dahulu " + result.data.name);
-        redirect("/signup");
+        redirect("/register");
     } else {
         // Tampilkan pesan selamat datang
         setInner("content", "Selamat datang " + result.data.name);
