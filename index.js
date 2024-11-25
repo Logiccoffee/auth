@@ -1,38 +1,42 @@
-import { getCookie } from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
-import { setInner } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
-import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
-import { redirect } from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
+import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
+import {setInner} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
+import {getJSON} from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
+import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 
-// Validasi login berdasarkan cookie
-// Validasi login berdasarkan cookie
+// Cek apakah cookie login ada, jika tidak arahkan ke halaman utama
 if (getCookie("login") === "") {
-    // Tetap di halaman login
-    setInner("content", "Silakan login untuk melanjutkan."); // Menampilkan pesan untuk login
-} else {
-    // Ambil data user
-    getJSON("https://asia-southeast2-awangga.cloudfunctions.net/logiccoffee/data/user", "login", getCookie("login"), validateRole);
+    redirect("/");
 }
 
-function validateRole(result) {
+// Ambil data pengguna menggunakan API
+getJSON("https://asia-southeast2-awangga.cloudfunctions.net/logiccoffee/data/user", "login", getCookie("login"), responseFunction);
+
+function responseFunction(result) {
     if (result.status === 404) {
+        // Jika pengguna tidak ditemukan, arahkan ke halaman pendaftaran
         setInner("content", "Silahkan lakukan pendaftaran terlebih dahulu " + result.data.name);
-        redirect("/register");
+        redirect("/signup");
     } else {
-        // Cek role untuk mengarahkan halaman
-        const userRole = result.data.role;
-
-        // Role yang diizinkan untuk mengakses halaman home
-        const allowedRolesForHome = ["user", "dosen"];
-
-        if (allowedRolesForHome.includes(userRole)) {
-            redirect("/menu"); // Arahkan user atau dosen ke halaman home
-        } else if (userRole === "admin") {
-            redirect("/admin/dashboard"); // Arahkan admin ke dashboard admin
-        } else if (userRole === "cashier") {
-            redirect("/cashier/dashboard"); // Arahkan cashier ke dashboard cashier
-        } else {
-            setInner("content", "Role tidak dikenali.");
-            redirect("/");
+        // Tampilkan pesan selamat datang
+        setInner("content", "Selamat datang " + result.data.name);
+        
+        // Arahkan pengguna berdasarkan role
+        switch (result.data.role) {
+            case "user":
+            case "dosen":
+                redirect("/menu");
+                break;
+            case "admin":
+                redirect("/dashboard-admin");
+                break;
+            case "cashier":
+                redirect("/dashboard-cashier");
+                break;
+            default:
+                // Jika role tidak dikenali, tetap di halaman utama atau tampilkan pesan error
+                redirect("/");
+                break;
         }
     }
+    console.log(result);
 }
