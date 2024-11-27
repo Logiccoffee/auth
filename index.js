@@ -15,7 +15,7 @@ function responseFunction(result) {
     if (result.status === 404) {
         // Jika pengguna tidak ditemukan, arahkan ke halaman pendaftaran
         setInner("content", "Silahkan lakukan pendaftaran terlebih dahulu " + result.data.name);
-        redirect("/auth/register");
+        redirect("/register");
     } else {
         // Tampilkan pesan selamat datang
         setInner("content", "Selamat datang " + result.data.name);
