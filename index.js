@@ -18,7 +18,7 @@ function responseFunction(result) {
         redirect("/register");
     } else {
         // Tampilkan pesan selamat datang
-        setInner("content", "Selamat datang " + result.data.name);
+        setInner("content", "Selamat datang " + result.data.name + "di Logic Coffee");
         
         // Arahkan pengguna berdasarkan role
         switch (result.data.role) {
