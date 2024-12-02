@@ -40,3 +40,15 @@ function responseFunction(result) {
     }
     console.log(result);
 }
+
+function logout() {
+    // Hapus cookie login yang menyimpan status login
+    document.cookie = "login=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"; // Menghapus cookie login
+  
+    // Menghapus token dari localStorage jika ada
+    localStorage.removeItem("token");
+  
+    // Refresh halaman agar tombol kembali ke kondisi "Sign in"
+    location.reload();
+  }
+  
